@@ -1,0 +1,1 @@
+DEEPINFRA_API='62HVFiI' # Convert this file to .env 

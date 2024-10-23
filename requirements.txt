@@ -1,0 +1,8 @@
+pandas
+openai
+python-dotenv
+ipykernel
+shapely
+requests
+streamlit
+-e .
