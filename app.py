@@ -31,7 +31,9 @@ def process_user_input(user_input_text):
 
         """
         locations_result = GeoLocationExtractor.process_event_locations(chat_processor.process_text(user_input_text, "locations"))
-        print(f"Extracted Locations: {locations_result}")"""
+        print(f"Extracted Locations: {locations_result}")
+        hi
+        """
 
         # Processing locations
         locations_text = chat_processor.process_text(user_input_text, "locations")
