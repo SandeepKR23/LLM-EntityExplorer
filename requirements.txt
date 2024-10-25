@@ -5,4 +5,5 @@ ipykernel
 shapely
 requests
 streamlit
+folium
 -e .

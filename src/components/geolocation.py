@@ -65,7 +65,7 @@ class GeoDataMethods:
             geojson_data = data  # Assign the entire response to geojson_data
         return geojson_data, geojson_location
 
-
+    @staticmethod
     def categorize_geojson(df_location: pd.DataFrame) -> pd.DataFrame:
         # Initialize the 'Geometry' column if it doesn't already exist
         if 'Geometry' not in df_location.columns:
