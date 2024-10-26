@@ -55,6 +55,7 @@ class PromptTemplateGenerator:
         - Do not include countries, cities, or other geographical entities unless they are part of an organization's name.
         - If an entity is mentioned multiple times, list it only once.
         - If unsure about an entity, include it and note your uncertainty.
+        - Do not include any non-relevant details or additional commentary.
 
         Example:
         Entities: Apple Inc., Microsoft Corporation, World Health Organization (WHO), United Nations Children's Fund (UNICEF), U.S. Department of Energy, European Union (EU), Harvard University, International Red Cross and Red Crescent Movement
@@ -122,4 +123,30 @@ class PromptTemplateGenerator:
         Event Locations: [New York City, USA; Paris, France; Tokyo, Japan; California, USA; Middle East]
 
         Your Response:
+        """
+
+    @staticmethod
+    def generate_phone_number_prompt(text):
+        return f"""
+        You are a data extraction expert specializing in identifying and listing phone numbers from the provided text.
+
+        Text:
+        "{text}"
+
+        Instructions:
+        - Read the text carefully.
+        - Identify and list all the phone numbers mentioned in the text.
+        - Ensure to capture various formats, including country codes and different separators.
+
+        Task:
+        Phone Numbers: Identify and list all phone numbers found in the text. Use commas to separate multiple phone numbers.
+
+        Example:
+        Phone Numbers: (123) 456-7890, +1 234 567 8901, 987-654-3210
+
+        Note:
+        - Do not include any non-relevant details or additional commentary.
+        - Ensure the response is concise and directly answers the task requirements.
+
+        Answer:
         """

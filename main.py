@@ -24,6 +24,8 @@ class ProcessingResult:
     event_types: str
     entities: str
     names: str
+    emails: str
+    phone: str
     geojson_data: List[Dict]
     raw_text: str
 
@@ -64,6 +66,7 @@ class EntityExplorer:
             logger.error(f"Error processing locations: {str(e)}")
             raise
 
+
     def process_text(self, text: str) -> Optional[ProcessingResult]:
         """Process input text and return structured results"""
         try:
@@ -77,6 +80,11 @@ class EntityExplorer:
             
             names = self.content_extractor.extract_names(self.chat_processor.process_text(text, "names"))
 
+            emails = self.content_extractor.extract_emails(text)
+
+            phone_num = self.chat_processor.process_text(text, "phone_numbers")
+            phone_numbers = self.content_extractor.extract_phone_numbers(phone_num)
+
             # Process locations
             processed_locations_df = self.process_locations(self.chat_processor.process_text(text, "locations"))
 
@@ -87,6 +95,8 @@ class EntityExplorer:
                 event_types=event_types,
                 entities=entities,
                 names=names,
+                emails= emails,
+                phone= phone_numbers,
                 geojson_data=processed_locations_df[['Split_location', 'Geo_Locations', 'Geometry']].to_dict(orient="records"),
                 raw_text=text
             )
@@ -106,7 +116,7 @@ def save_results(results: ProcessingResult, filename: str = "results.json"):
         logger.error(f"Error saving results: {str(e)}")
         raise
 
-def create_visualization(geojson_data: List[Dict], filename: str = "map.html"):
+def create_visualization(geojson_data: List[Dict], filename: str = "artifacts/map.html"):
     """Create and save visualization"""
     try:
         file_path = os.path.join(ARTIFACTS_DIR, filename)
@@ -162,12 +172,10 @@ def streamlit_interface():
                 with col1:
                     st.subheader("Extracted Information")
                     st.write("**Event Types:**", results.event_types)
-                    st.write("**Entities:**", results.entities)
+                    st.write("**Entities(ORG/COMP):**", results.entities)
                     st.write("**Names:**", results.names)
-
-                    # # Displaying unique locations as a single string without duplicates and brackets
-                    # locations = list({loc["Split_location"] for loc in results.geojson_data})  # Remove duplicates
-                    # st.write("**Locations:**", locations)
+                    st.write("**Emails:**", results.emails)
+                    st.write("**Phone Number:**", results.phone)
 
                     # Displaying unique locations with bullet points
                     locations = list({loc["Split_location"] for loc in results.geojson_data})  # Remove duplicates
@@ -179,8 +187,8 @@ def streamlit_interface():
                     st.subheader("Geographical Data")
                     if results.geojson_data:
                         map_object = create_map_with_geojson(results.geojson_data)
-                        map_object.save("temp_map.html")
-                        st.components.v1.html(open("temp_map.html").read(), height=400)
+                        map_object.save("artifacts/temp_map.html")
+                        st.components.v1.html(open("artifacts/temp_map.html").read(), height=400)
                     else:
                         st.write("No geographical data found.")
                         

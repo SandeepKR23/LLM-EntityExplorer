@@ -3,7 +3,6 @@ import pandas as pd
 import re
 import numpy as np
 import requests
-import time
 from shapely.geometry import shape
 from shapely.geometry import Point
 import json

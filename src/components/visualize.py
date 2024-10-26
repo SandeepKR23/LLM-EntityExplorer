@@ -36,16 +36,18 @@ def create_map_with_geojson(data):
     
     return m
 
-# if __name__ == "__main__":
-#     with open('results.json', 'r') as json_file:
-#         data = json.load(json_file)
+"""
+if __name__ == "__main__":
+    with open('results.json', 'r') as json_file:
+        data = json.load(json_file)
 
-#     # Extract the 'GeoJSON Data' section
-#     geojson_data = data['GeoJSON Data']
+    # Extract the 'GeoJSON Data' section
+    geojson_data = data['GeoJSON Data']
 
-#     # Generate the map with GeoJSON data
-#     map_object = create_map_with_geojson(geojson_data)
+    # Generate the map with GeoJSON data
+    map_object = create_map_with_geojson(geojson_data)
 
-#     # Save the map as an HTML file
-#     map_object.save('map.html')
-#     print("Map saved as 'map.html'. Open this file in a web browser to view the map.")
+    # Save the map as an HTML file
+    map_object.save('map.html')
+    print("Map saved as 'map.html'. Open this file in a web browser to view the map.")
+"""
