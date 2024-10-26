@@ -6,7 +6,12 @@ The **LLM Entity Explorer** is an advanced Python application designed for proce
 
 **Deep Infra** provides cutting-edge large language models (LLMs) at a low cost, allowing users to harness the power of advanced machine learning without the complexities of managing GPU infrastructure. With the help of APIs, users can seamlessly integrate these models into their applications, enabling efficient and scalable solutions for text processing and analysis.
 
+**Read the full story:** [Medium Blog: LLM Entity Explorer - AI-Powered Text Analysis Made Simple](https://medium.com/@sandeepkrajkumar/llm-entity-explorer-ai-powered-text-analysis-made-simple-372883a57920)
+
 ![alt text](artifacts/image.png)
+
+
+
 
 ## Features
 - **Comprehensive Text Analysis**: 
