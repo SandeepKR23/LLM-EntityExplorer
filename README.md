@@ -1,7 +1,10 @@
 # LLM Entity Explorer
 
 ## Overview
-The **LLM Entity Explorer** is an advanced Python application designed for processing and analyzing textual data. By utilizing cutting-edge natural language processing (NLP) techniques, this application extracts valuable insights from text, including event types, entities, names, emails, phone numbers, and geographical data. It incorporates **DeepInfra's** prompt engineering to enhance the interaction with language models, ensuring more accurate and contextually relevant information extraction.
+
+The **LLM Entity Explorer** is an advanced Python application designed for processing and analyzing textual data. Utilizing cutting-edge natural language processing (NLP) techniques, this application extracts valuable insights from text, including event types, entities, names, emails, phone numbers, and geographical data. To enhance the accuracy and relevance of information extraction, **prompt engineering** has been implemented, ensuring that the most pertinent data is retrieved effectively.
+
+**Deep Infra** provides cutting-edge large language models (LLMs) at a low cost, allowing users to harness the power of advanced machine learning without the complexities of managing GPU infrastructure. With the help of APIs, users can seamlessly integrate these models into their applications, enabling efficient and scalable solutions for text processing and analysis.
 
 ![alt text](artifacts/image.png)
 
@@ -56,7 +59,7 @@ To run the application, ensure you have **Python 3.x** installed. Follow the ste
 
 1. **Clone the Repository**:
 ```
-git clone https://github.com/YourUsername/LLM-EntityExplorer.git
+git clone https://github.com/SandeepKR23/LLM-EntityExplorer.git
 cd LLM-EntityExplorer
 ```
 
@@ -73,10 +76,9 @@ pip install -r requirements.txt
 
 4. **LLM models used**:
 The application leverages the following large language models for enhanced performance:
-```
 - microsoft/WizardLM-2-8x22B
 - meta-llama/Meta-Llama-3.1-70B-Instruct
-```
+
 
 ## Usage
 
@@ -101,11 +103,12 @@ After launching the application, you can input a piece of text for analysis. The
 
 ## Expected Output
 
-- Event Types: Types of events identified in the text.
-- Entities: Organizations or companies mentioned.
-- Names: Personal names extracted.
-- Emails and Phone Numbers: Contact details found in the text.
-- Geographical Data: Visual representations of locations.
+- **Event Types**: Types of events identified in the text.
+- **Entities**: Organizations or companies mentioned.
+- **Names**: Personal names extracted.
+- **Emails**: Emails found in the text.
+- **Phone Numbers**: Phone Numbers found in the text.
+- **Geographical Data**: Visual representations of locations.
 
 ![alt text](artifacts/image-1.png)
 
